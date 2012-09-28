@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NoteEditor.Controls
+namespace NoteEditor.Controls.Views
 {
     /// <summary>
-    /// Interaction logic for SectionTreeControl.xaml
+    /// Interaction logic for NoteControl.xaml
     /// </summary>
-    public partial class SectionTreeControl : UserControl
+    public partial class NoteControl : UserControl
     {
-        public SectionTreeControl()
+        public NoteControl()
         {
             InitializeComponent();
         }
