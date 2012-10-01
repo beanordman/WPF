@@ -15,20 +15,12 @@ namespace NoteEditor.Controls.Models
 
         public IEnumerable<Section> Sections
         {
-            //get { return new ReadOnlyCollection<Section>(SectionsEnum.ToList()); }
             get { return SectionsEnum; }
         }
 
         private IEnumerable<Section> SectionsEnum
         {
-            //get { return SectionInitializer.Initialize(); }
-            get
-            {
-                yield return new Section() {Title = "1" };
-                yield return new Section() {Title = "2" };
-                yield return new Section() {Title = "3" };
-                yield return new Section() {Title = "4" };
-            }
+            get { return SectionInitializer.Initialize(); }
         }
     }
 }

@@ -8,15 +8,8 @@
              x:Class="NoteEditor.Controls.Views.SectionTreeControl"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <!--<UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ViewResources.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>-->
     <Grid>
-            <TreeView HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" 
+        <TreeView HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" 
                   ItemsSource="{Binding Sections}"
                   >
             <TreeView.DataContext>
@@ -24,9 +17,16 @@
             </TreeView.DataContext>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate 
-                    DataType="x:Type local:Section"
                     ItemsSource="{Binding Notes}"
                     >
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Title}"/>
+                                <TextBlock Text="Hello there"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=Title}"/>
                     </StackPanel>
