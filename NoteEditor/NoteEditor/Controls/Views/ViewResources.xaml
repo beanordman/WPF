@@ -1,12 +1,25 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:NoteEditor.Controls.ViewModels.SectionTreeView">
+                    xmlns:local="clr-namespace:NoteEditor.Controls.ViewModels.SectionTreeView"
+                    xmlns:ne="clr-namespace:NoteEditor">
 
+    <ContextMenu x:Key="RootNodeConextMenu" StaysOpen="True">
+        <MenuItem Header="Add Section" Command="ne:NoteEditorCommands.AddSectionCommand"/>
+    </ContextMenu>
+    <ContextMenu x:Key="SectionNodeContextMenu" StaysOpen="True">
+        <MenuItem Header="Add Note" Command="ne:NoteEditorCommands.AddNoteCommand"/>
+        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteSectionCommand"/>
+    </ContextMenu>
+    <ContextMenu x:Key="NoteNodeContextMenu" StaysOpen="True">
+        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteNoteCommand"/>
+    </ContextMenu>
+   
     <DataTemplate 
         x:Key="NoteTemplate" 
-        DataType="local:NoteViewModel">
+        DataType="local:NoteViewModel"
+        >
         <StackPanel>
-            <TextBlock Text="{Binding Path=Title}"/>
+            <TextBlock Text="{Binding Path=Title}" ContextMenu="{StaticResource NoteNodeContextMenu}"/>
         </StackPanel>
     </DataTemplate>
 
@@ -17,7 +30,7 @@
                     DataType="local:SectionViewModel"
                     >
         <StackPanel>
-            <TextBlock Text="{Binding Path=Title}"/>
+            <TextBlock Text="{Binding Path=Title}" ContextMenu="{StaticResource SectionNodeContextMenu}"/>
         </StackPanel>
     </HierarchicalDataTemplate>
 

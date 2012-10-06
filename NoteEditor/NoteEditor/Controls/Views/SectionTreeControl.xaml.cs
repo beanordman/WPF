@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Input;
 using NoteEditor.Controls.ViewModels.SectionTreeView;
 
 namespace NoteEditor.Controls.Views
@@ -25,6 +26,54 @@ namespace NoteEditor.Controls.Views
             {
                 Controller.SelectedNodeChanged(e.NewValue);
             }
+        }
+
+        private void CanExecuteAddSection(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.CanExecuteAddSection(sender, e);
+        }
+
+        private void CanExecuteAddNote(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.CanExecuteAddNote(sender, e);
+        }
+
+        private void OnAddSection(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.OnAddSection(sender, e);
+        }
+
+        private void OnAddNote(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.OnAddNote(sender, e); 
+        }
+
+        private void OnDeleteNote(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.OnDeleteNote(sender, e); 
+        }
+
+        private void OnDeleteSection(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.OnDeleteSection(sender, e);
+        }
+
+        private void CanExecuteDeleteNote(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.CanExecuteDeleteNote(sender, e); 
+        }
+
+        private void CanExecuteDeleteSection(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.CanExecuteDeleteSection(sender, e); 
         }
     }
 }
