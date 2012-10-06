@@ -78,7 +78,9 @@
     <Compile Include="Controls\Models\Note.cs" />
     <Compile Include="Controls\Models\SectionInitializer.cs" />
     <Compile Include="Controls\Models\SectionCollection.cs" />
-    <Compile Include="Controls\ViewModels\SectionTreeViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SectionTreeView\NoteViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SectionTreeView\SectionsViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SectionTreeView\SectionViewModel.cs" />
     <Compile Include="Controls\Views\NoteControl.xaml.cs">
       <DependentUpon>NoteControl.xaml</DependentUpon>
     </Compile>

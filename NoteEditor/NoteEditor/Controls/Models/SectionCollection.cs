@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NoteEditor.Controls.Models
 {
-    class SectionCollection
+    public class SectionCollection
     {
         public SectionCollection()
         {

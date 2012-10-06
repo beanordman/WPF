@@ -23,7 +23,6 @@
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding Path=Title}"/>
-                                <TextBlock Text="Hello there"/>
                             </StackPanel>
                         </DataTemplate>
                     </HierarchicalDataTemplate.ItemTemplate>

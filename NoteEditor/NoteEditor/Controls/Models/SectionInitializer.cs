@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NoteEditor.Controls.Models
 {
-    class SectionInitializer
+    public sealed class SectionInitializer
     {
         public static IEnumerable<Section> Initialize()
         {

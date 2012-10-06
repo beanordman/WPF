@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteEditor", "NoteEditor\NoteEditor.csproj", "{8E3F2B74-026C-4CE7-BE7E-787FA46D1526}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteEditor.Tests", "NoteEditor.Tests\NoteEditor.Tests.csproj", "{0D843C5B-8B76-45F8-B37C-9B28B5341C87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{8E3F2B74-026C-4CE7-BE7E-787FA46D1526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E3F2B74-026C-4CE7-BE7E-787FA46D1526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E3F2B74-026C-4CE7-BE7E-787FA46D1526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D843C5B-8B76-45F8-B37C-9B28B5341C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D843C5B-8B76-45F8-B37C-9B28B5341C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D843C5B-8B76-45F8-B37C-9B28B5341C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D843C5B-8B76-45F8-B37C-9B28B5341C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
