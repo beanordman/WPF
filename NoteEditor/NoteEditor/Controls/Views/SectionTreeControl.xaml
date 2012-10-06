@@ -17,8 +17,9 @@
     </UserControl.Resources>
     <Grid>
         <TreeView HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" 
-                  ItemsSource="{Binding Sections}"
-                  ItemTemplate="{StaticResource SectionTemplate}"
+                  x:Name="SectionsTreeView"
+                  ItemTemplate="{StaticResource SectionTemplate}" 
+                  SelectedItemChanged="SectionsTreeView_SelectedItemChanged"
                   >
             <TreeView.DataContext>
                 <local:SectionCollection/>

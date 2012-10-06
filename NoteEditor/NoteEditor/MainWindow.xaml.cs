@@ -1,33 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NoteEditor.Controls.ViewModels.SectionTreeView;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace NoteEditor
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IViewController
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            _sectionTreeControl.Controller = this;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public void SelectedNodeChanged(object node)
         {
-            MessageBox.Show("You Clicked Me!");
+            if (node is NoteViewModel)
+            {
+                _noteControl.DataContext = node as NoteViewModel;
+            }
+            else
+            {
+                _noteControl.DataContext = null;
+            }
         }
     }
 }

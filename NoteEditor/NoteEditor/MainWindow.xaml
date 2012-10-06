@@ -5,8 +5,8 @@
         Title="MainWindow" Height="778.06" Width="1085">
     <Grid RenderTransformOrigin="0.331,0.511">
         <DockPanel LastChildFill="True" Margin="10" >
-            <Views:SectionTreeControl DockPanel.Dock="Left" Width="300"/>
-            <Views:NoteControl/>
+            <Views:SectionTreeControl x:Name="_sectionTreeControl" DockPanel.Dock="Left" Width="300"/>
+            <Views:NoteControl x:Name="_noteControl"/>
         </DockPanel>
     </Grid>
 </Window>

@@ -8,11 +8,23 @@ namespace NoteEditor.Controls.Views
     /// </summary>
     public partial class SectionTreeControl : UserControl
     {
+        public IViewController Controller { get; set; }
+
         public SectionTreeControl()
         {
             InitializeComponent();
-            var s = new SectionsViewModel(new Models.SectionCollection());
-            DataContext = s;
+            var sectionsViewModel = new SectionsViewModel(new Models.SectionCollection());
+            DataContext = sectionsViewModel;
+            SectionsTreeView.ItemsSource = sectionsViewModel.Sections;
+                  
+        }
+
+        private void SectionsTreeView_SelectedItemChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (Controller != null)
+            {
+                Controller.SelectedNodeChanged(e.NewValue);
+            }
         }
     }
 }
