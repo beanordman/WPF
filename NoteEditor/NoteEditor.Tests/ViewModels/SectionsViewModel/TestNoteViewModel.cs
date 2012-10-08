@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NoteEditor.Controls.Models;
 using NoteEditor.Controls.ViewModels.SectionTreeView;
+using NoteEditor.Model;
+using Rhino.Mocks;
+
 
 namespace NoteEditor.Tests.ViewModels.SectionsViewModel
 {
@@ -10,8 +12,11 @@ namespace NoteEditor.Tests.ViewModels.SectionsViewModel
         [TestMethod]
         public void TestConstruction()
         {
-            var note = new Note() {Text = "Text", Title = "Title"};
-            var noteViewModel = new NoteViewModel(note);
+            var stubbedNote = MockRepository.GenerateStub<INote>();
+            stubbedNote.Title = "Title";
+            stubbedNote.Text = "Text";
+
+            var noteViewModel = new NoteViewModel(stubbedNote);
 
             Assert.AreEqual("Text", noteViewModel.Text);
             Assert.AreEqual("Title", noteViewModel.Title);

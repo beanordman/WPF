@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.IO;
+using System.Windows.Controls;
 using System.Windows.Input;
 using NoteEditor.Controls.ViewModels.SectionTreeView;
 
@@ -9,15 +10,38 @@ namespace NoteEditor.Controls.Views
     /// </summary>
     public partial class SectionTreeControl : UserControl
     {
+        internal const string TestXml =
+    "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" +
+    "<Sections>" +
+    "  <Section Title=\"Section1\">" +
+    "    <Note Title=\"Note1\">" +
+            "Note1 Text" +
+        "</Note>" +
+        "<Note Title=\"Note2\">" +
+            "Note2 Text" +
+         "</Note>" +
+    "  </Section>" +
+    "  <Section Title=\"Section2\">" +
+    "    <Note Title=\"Note3\">Note3 Text</Note>" +
+    "  </Section>" +
+    "  <Section Title=\"Section3\">" +
+    "  </Section>" +
+    "</Sections>";
+
         public IViewController Controller { get; set; }
 
         public SectionTreeControl()
         {
             InitializeComponent();
-            var sectionsViewModel = new SectionsViewModel(new Models.SectionCollection());
-            DataContext = sectionsViewModel;
-            SectionsTreeView.ItemsSource = sectionsViewModel.Sections;
-                  
+
+            using (var reader = new StringReader(TestXml))
+            {
+
+                var sectionsViewModel = new SectionsViewModel(Model.Xml.Serializer.Load(reader));
+                DataContext = sectionsViewModel;
+                SectionsTreeView.ItemsSource = sectionsViewModel.Sections;
+            }
+
         }
 
         private void SectionsTreeView_SelectedItemChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)

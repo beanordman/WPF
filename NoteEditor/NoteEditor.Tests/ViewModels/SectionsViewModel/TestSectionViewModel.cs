@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NoteEditor.Controls.Models;
 using NoteEditor.Controls.ViewModels.SectionTreeView;
 using System.Collections.Generic;
 using System.Linq;
+using NoteEditor.Model;
+using Rhino.Mocks;
 
 namespace NoteEditor.Tests.ViewModels.SectionsViewModel
 {
@@ -12,34 +13,31 @@ namespace NoteEditor.Tests.ViewModels.SectionsViewModel
         [TestMethod]
         public void TestConstruction()
         {
-            {
-                var section = new Section();
-                var sectionViewModel = new SectionViewModel(section);
+            var stubbedNote1 = MockRepository.GenerateStub<INote>();
+            stubbedNote1.Title = "Title1";
+            stubbedNote1.Text = "Text1";
 
-                Assert.IsNull(sectionViewModel.Title);
-                Assert.IsNull(sectionViewModel.Notes);
-            }
+            var stubbedNote2 = MockRepository.GenerateStub<INote>();
+            stubbedNote2.Title = "Title2";
+            stubbedNote2.Text = "Text2";
 
-            {
-                var section = new Section()
-                                  {
-                                      Title = "Section Title",
-                                      Notes =
-                                          new List<Note>
-                                              {
-                                                  new Note {Title = "Title1", Text = "Text1"},
-                                                  new Note {Title = "Title1", Text = "Text1"}
-                                              }
-                                  };
+            var stubbedSection = MockRepository.GenerateStub<ISection>();
+            stubbedSection.Title = "Section Title";
+            stubbedSection.Stub(x => x.Notes).Return
+                (
+                    new List<INote>()
+                        {
+                            stubbedNote1, stubbedNote2
+                        }
+                );
 
-                var sectionViewModel = new SectionViewModel(section);
+            var sectionViewModel = new SectionViewModel(stubbedSection);
 
-                Assert.AreEqual("Section Title", sectionViewModel.Title);
-                Assert.IsNotNull(sectionViewModel.Notes);
-                Assert.AreEqual(2, sectionViewModel.Notes.Count);
-                Assert.AreEqual("Title1", section.Notes.First().Title);
-                Assert.AreEqual("Text1", section.Notes.First().Text);
-            }
+            Assert.AreEqual("Section Title", sectionViewModel.Title);
+            Assert.IsNotNull(sectionViewModel.Notes);
+            Assert.AreEqual(2, sectionViewModel.Notes.Count);
+            Assert.AreEqual("Title1", stubbedSection.Notes.First().Title);
+            Assert.AreEqual("Text1", stubbedSection.Notes.First().Text);
         }
     }
 }

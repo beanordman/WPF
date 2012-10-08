@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NoteEditor.Controls.Models;
 using NoteEditor.Controls.ViewModels.SectionTreeView;
 using System.Collections.Generic;
 using System.Linq;
+using NoteEditor.Model;
 
 namespace NoteEditor.Tests.ViewModels.SectionsViewModel
 {
@@ -12,7 +12,7 @@ namespace NoteEditor.Tests.ViewModels.SectionsViewModel
         [TestMethod]
         public void TestConstrucition()
         {
-            var sections = new Controls.ViewModels.SectionTreeView.SectionsViewModel(new SectionCollection());
+            var sections = new Controls.ViewModels.SectionTreeView.SectionsViewModel(new List<ISection>());
 
             TestInitialize(sections.Sections);
         }

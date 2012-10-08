@@ -1,17 +1,17 @@
-﻿using NoteEditor.Controls.Models;
+﻿using NoteEditor.Model;
 
 namespace NoteEditor.Controls.ViewModels.SectionTreeView
 {
     public class NoteViewModel
     {
-        private readonly Note _note;
+        private readonly INote _note;
 
-        public NoteViewModel()
-        {
-            _note = new Note();
-        }
+        //public NoteViewModel()
+        //{
+        //    _note = new Note();
+        //}
 
-        public NoteViewModel(Note note)
+        public NoteViewModel(INote note)
         {
             _note = note;
         }

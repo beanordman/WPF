@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D843C5B-8B76-45F8-B37C-9B28B5341C87}</ProjectGuid>
+    <ProjectGuid>{4BE33F30-3B25-4EFA-A9A6-E07142B66AD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NoteEditor.Tests</RootNamespace>
-    <AssemblyName>NoteEditor.Tests</AssemblyName>
+    <RootNamespace>NoteEditor.Model.Tests</RootNamespace>
+    <AssemblyName>NoteEditor.Model.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,10 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\..\source\utils\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -53,21 +52,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ViewModels\SectionsViewModel\TestNoteViewModel.cs" />
+    <Compile Include="ISection.cs" />
+    <Compile Include="Xml\Constants.cs" />
+    <Compile Include="Xml\TestNoteEditor_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\SectionsViewModel\TestSectionViewModel.cs" />
-    <Compile Include="ViewModels\SectionsViewModel\TestSectionsViewModel.cs" />
+    <Compile Include="Xml\TestSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NoteEditor.Model\NoteEditor.Model.csproj">
-      <Project>{213382D2-CD99-4DF3-8569-C6128ADD0BAB}</Project>
+      <Project>{213382d2-cd99-4df3-8569-c6128add0bab}</Project>
       <Name>NoteEditor.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NoteEditor\NoteEditor.csproj">
-      <Project>{8e3f2b74-026c-4ce7-be7e-787fa46d1526}</Project>
-      <Name>NoteEditor</Name>
-    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
