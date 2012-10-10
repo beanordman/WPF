@@ -49,9 +49,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="IFactory.cs" />
     <Compile Include="INote.cs" />
     <Compile Include="ISection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml\Factory.cs" />
     <Compile Include="Xml\Note.cs" />
     <Compile Include="Xml\NoteEditor_Model.cs" />
     <Compile Include="Xml\Section.cs" />

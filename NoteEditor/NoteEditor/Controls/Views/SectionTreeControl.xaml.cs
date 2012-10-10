@@ -29,6 +29,8 @@ namespace NoteEditor.Controls.Views
     "</Sections>";
 
         public IViewController Controller { get; set; }
+        public SectionsViewModel SectionsViewModel { get; private set; }
+        
 
         public SectionTreeControl()
         {
@@ -36,10 +38,9 @@ namespace NoteEditor.Controls.Views
 
             using (var reader = new StringReader(TestXml))
             {
-
-                var sectionsViewModel = new SectionsViewModel(Model.Xml.Serializer.Load(reader));
-                DataContext = sectionsViewModel;
-                SectionsTreeView.ItemsSource = sectionsViewModel.Sections;
+                SectionsViewModel = new SectionsViewModel(Model.Xml.Serializer.Load(reader));
+                DataContext = SectionsViewModel;
+                SectionsTreeView.ItemsSource = SectionsViewModel.Sections;
             }
 
         }
@@ -88,6 +89,12 @@ namespace NoteEditor.Controls.Views
                 Controller.OnDeleteSection(sender, e);
         }
 
+        private void OnRename(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.OnRename(sender, e);
+        }
+
         private void CanExecuteDeleteNote(object sender, CanExecuteRoutedEventArgs e)
         {
             if (Controller != null)
@@ -98,6 +105,12 @@ namespace NoteEditor.Controls.Views
         {
             if (Controller != null)
                 Controller.CanExecuteDeleteSection(sender, e); 
+        }
+
+        private void CanExecuteRename(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (Controller != null)
+                Controller.CanExecuteDeleteSection(sender, e);
         }
     }
 }

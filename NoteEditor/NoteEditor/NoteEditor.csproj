@@ -115,9 +115,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\NoteEditor.Model\NoteEditor.Model.csproj">
       <Project>{213382d2-cd99-4df3-8569-c6128add0bab}</Project>
       <Name>NoteEditor.Model</Name>

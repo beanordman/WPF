@@ -4,14 +4,16 @@
                     xmlns:ne="clr-namespace:NoteEditor">
 
     <ContextMenu x:Key="RootNodeConextMenu" StaysOpen="True">
-        <MenuItem Header="Add Section" Command="ne:NoteEditorCommands.AddSectionCommand"/>
+        <MenuItem Header="Add Section" Command="ne:NoteEditorCommands.AddSectionCommand" CommandParameter="{Binding}"/>
     </ContextMenu>
     <ContextMenu x:Key="SectionNodeContextMenu" StaysOpen="True">
-        <MenuItem Header="Add Note" Command="ne:NoteEditorCommands.AddNoteCommand"/>
-        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteSectionCommand"/>
+        <MenuItem Header="Add Note" Command="ne:NoteEditorCommands.AddNoteCommand" CommandParameter="{Binding}"/>
+        <MenuItem Header="Rename" Command="ne:NoteEditorCommands.RenameCommand" CommandParameter="{Binding}"/>
+        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteSectionCommand" CommandParameter="{Binding}"/>
     </ContextMenu>
     <ContextMenu x:Key="NoteNodeContextMenu" StaysOpen="True">
-        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteNoteCommand"/>
+        <MenuItem Header="Rename" Command="ne:NoteEditorCommands.RenameCommand" CommandParameter="{Binding}"/>
+        <MenuItem Header="Delete" Command="ne:NoteEditorCommands.DeleteNoteCommand" CommandParameter="{Binding}"/>
     </ContextMenu>
    
     <DataTemplate 

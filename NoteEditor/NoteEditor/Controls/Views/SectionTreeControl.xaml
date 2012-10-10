@@ -13,6 +13,7 @@
         <CommandBinding Command="NoteEditor:NoteEditorCommands.AddNoteCommand" Executed="OnAddNote" CanExecute="CanExecuteAddNote"/>
         <CommandBinding Command="NoteEditor:NoteEditorCommands.DeleteNoteCommand" Executed="OnDeleteNote" CanExecute="CanExecuteDeleteNote"/>
         <CommandBinding Command="NoteEditor:NoteEditorCommands.DeleteSectionCommand" Executed="OnDeleteSection" CanExecute="CanExecuteDeleteSection"/>
+        <CommandBinding Command="NoteEditor:NoteEditorCommands.RenameCommand" Executed="OnRename" CanExecute="CanExecuteRename"/>
     </UserControl.CommandBindings>
     <UserControl.Resources>
         <ResourceDictionary>

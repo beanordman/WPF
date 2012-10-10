@@ -1,15 +1,11 @@
-﻿using NoteEditor.Model;
+﻿using System.ComponentModel;
+using NoteEditor.Model;
 
 namespace NoteEditor.Controls.ViewModels.SectionTreeView
 {
-    public class NoteViewModel
+    public class NoteViewModel : INotifyPropertyChanged
     {
         private readonly INote _note;
-
-        //public NoteViewModel()
-        //{
-        //    _note = new Note();
-        //}
 
         public NoteViewModel(INote note)
         {
@@ -19,13 +15,32 @@ namespace NoteEditor.Controls.ViewModels.SectionTreeView
         public string Title
         {
             get { return _note.Title; } 
-            set { _note.Title = value; }
+            set
+            {
+                _note.Title = value;
+                OnPropertyChanged("Title");
+            }
         }
-
+        
         public string Text
         {
             get { return _note.Text; }
-            set { _note.Text = value; }
+            set
+            {
+                _note.Text = value;
+                OnPropertyChanged("Text");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            var handler = PropertyChanged;
+
+            if (handler == null)
+                return;
+
+            handler(this, new PropertyChangedEventArgs(name));
         }
     }
 }

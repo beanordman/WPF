@@ -9,11 +9,11 @@ namespace NoteEditor.Controls.ViewModels.SectionTreeView
     {
         public SectionsViewModel(IEnumerable<ISection> sections)
         {
-            Sections = new ReadOnlyCollection<SectionViewModel>(
+            Sections = new ObservableCollection<SectionViewModel>(
                 sections.Select(section => new SectionViewModel(section)).ToList()
                 );
         }
 
-        public IReadOnlyCollection<SectionViewModel> Sections { get; private set; }
+        public ObservableCollection<SectionViewModel> Sections { get; private set; }
     }
 }
